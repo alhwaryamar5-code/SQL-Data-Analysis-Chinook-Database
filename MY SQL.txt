@@ -1,0 +1,37 @@
+SELECT
+t.Name AS ProdactName,
+SUM(il.Quantity) AS Totalsold
+FROM InvoiceLine il
+JOIN Track t ON il . TrackId = t.TrackId
+GROUP By t.Name
+ORDER by Totalsold DESC
+LIMIT 5;
+
+SELECT
+c.Country,
+SUM(i.Total) AS TotalRevnue
+FROM Customer c
+JOIN Invoice i ON c.CustomerId = i.CustomerId
+GROUP By c.Country
+ORDER by TotalRevnue DESC
+LIMIT 5;
+
+
+SELECT
+substr(InvoiceDate, 1, 7) AS Month,
+SUM(total) AS MonthlyRevenue
+FROM Invoice
+GROUP By Month
+ORDER by Month;
+
+
+
+
+
+
+
+
+
+
+
+
